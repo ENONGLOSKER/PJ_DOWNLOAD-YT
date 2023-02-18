@@ -1,0 +1,47 @@
+{%extends 'base.html'%}
+
+{%block konten%}
+<div class="row  bg-dark py-5">
+    <div class="col-12">
+       <div class="container">
+        <h1 class="text-center text-primary">Download Sukses🎉🎉</h1>
+        <p class="text-center text-light"> Solusi bagi kamu yang ingin download video dari youtube secara gratis!</p>
+         <!-- tahapan -->
+         <div class="position-relative m-4 mt-5">
+          <div class="progress" style="height: 1px;">
+              <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 2rem; height:2rem;">1</button> <p class="text-white mt-3 text-start" style="margin-left: -35px;">Paste URL</p>
+          <button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 2rem; height:2rem;">2</button> <p class="text-white text-center" style="margin-top: -40px;" >Pilih resolusi & Download</p>
+          <button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 2rem; height:2rem;">3</button> <p class="text-white text-end" style="margin-top: -40px; margin-right:-65px;" >Tunggu progres</p>
+          </div>
+     </div>
+       </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="container ">
+            <nav aria-label="breadcrumb " class="my-4">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{%url 'home'%}">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Video</li>
+                </ol>
+            </nav>
+
+            <div class="d-md-flex flex-md-center w-100 my-md-3 ps-md-3">
+                <div class="bg-primary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden col align-self-cente">
+                  <div class="my-2 py-2">
+                    <h2 class="display-6">Thankyou 😉</h2>
+                    <p class="lead">terimakasih telah menggunakan layanan kami</p>                  
+                  </div>
+                </div>                
+            </div>
+
+    </div>
+</div>
+
+
+
+
+{%endblock konten%}

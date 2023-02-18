@@ -1,0 +1,83 @@
+{%extends 'base.html'%}
+
+{%block konten%}
+<div class="row  bg-dark py-5">
+    <div class="col-12">
+       <div class="container">
+        <h1 class="text-center text-primary">Video Siap di Download</h1>
+        <p class="text-center text-light">download video dari youtube secara gratis!</p>
+         <!-- tahapan -->
+         <div class="position-relative m-4 mt-5">
+          <div class="progress" style="height: 1px;">
+              <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <button type="button" class="position-absolute top-0 start-0 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 2rem; height:2rem;">1</button> <p class="text-white mt-3 text-start" style="margin-left: -35px;">Paste URL</p>
+          <button type="button" class="position-absolute top-0 start-50 translate-middle btn btn-sm btn-primary rounded-pill" style="width: 2rem; height:2rem;">2</button> <p class="text-white text-center" style="margin-top: -40px;" >Pilih resolusi & Download</p>
+          <button type="button" class="position-absolute top-0 start-100 translate-middle btn btn-sm btn-secondary rounded-pill" style="width: 2rem; height:2rem;">3</button> <p class="text-white text-end" style="margin-top: -40px; margin-right:-65px;" >Tunggu progres</p>
+          </div>
+       </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="container ">
+            <nav aria-label="breadcrumb " class="my-4">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{%url 'home'%}">Home</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Video</li>
+                </ol>
+            </nav>
+
+            <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+                <div class="bg-light me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-dark overflow-hidden">
+                  <div class="my-2 py-2">
+                    <h2 class="display-6">Your Video</h2>
+                    <p class="lead text-end">{{title}}</p>
+                    <div class="ratio ratio-16x9">
+                        <iframe src="{{embed}}" title="YouTube video" allowfullscreen></iframe>
+                    </div>                      
+                  </div>
+                </div>
+                <div class="bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center text-white overflow-hidden reponsif">
+                  <div class="my-2 py-2">
+                    <h2 class="display-6">Resolutions</h2>
+                    <p class="lead">silahkan pilih tingkat kualitas video anda</p>
+                    <div class="resolutions table-responsive">
+                        <table class="table text-white">
+                            <thead>
+                              <tr>                                
+                                <th scope="col">Ukuran</th>
+                                <th scope="col">Resolutions</th>
+                                <th scope="col">Tipe</th>
+                                <th scope="col">Download</th>                                
+                              </tr>
+                            </thead>
+                            <tbody>
+                            {%for data in video%}                                
+                              <tr>
+                                <th scope="row">{{data.filesize}}</th>
+                                <td>{{data.resolution}}</td>
+                                <td>{{data.type}}</td>
+                                <td>
+                                    <form action="{%url 'download:done' data.resolution %}" method="POST">
+                                      {%csrf_token%}
+                                      <input type="submit" class="btn btn-primary" value="Download">
+                                    </form>
+                                </td>                               
+                              </tr>    
+                            {%endfor%}    
+
+                            </tbody>
+                          </table>
+                    </div>                   
+                  </div>
+                </div>
+            </div>
+
+    </div>
+</div>
+
+
+
+
+{%endblock konten%}
